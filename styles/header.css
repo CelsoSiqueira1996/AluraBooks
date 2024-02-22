@@ -1,0 +1,180 @@
+.cabecalho__menu-hamburguer {
+    width: 24px;
+    height: 24px;
+    background-image: url("../assets/Menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+}
+
+.cabecalho {
+    background-color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.container__imagem {
+    padding: 1em;
+}
+
+.lista-menu {
+    display: none;
+    position: absolute; /*permite posicionar o elemento em relação ao elemento pai ou à outro elemento que tenha vindo antes, que tenha position diferente de static, por isso mudei para relative no cabeçalho*/
+    top: 100%;
+    width: 60vw;
+}
+
+.container__botao {
+    display: none;
+}
+
+.container__botao:checked ~ .lista-menu {
+    display: block;
+}
+
+.container__botao:checked ~ .label__menu-hamburguer > .cabecalho__menu-hamburguer {
+    background-image: url("../assets/MenuAberto.svg");
+}
+
+.container__botao:checked ~ .label__menu-hamburguer {
+    background: var(--azul-degrade);
+}
+
+.lista-menu__titulo, .lista-menu__item {
+    padding: 1em;
+    background-color: var(--branco);
+}
+
+.lista-menu__titulo{
+    color: var(--laranja);
+    font-weight: 700;
+}
+
+.lista-menu__link {
+    background: var(--azul-degrade);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+}
+
+.container__titulo {
+    display: none;
+}
+
+.opcoes {
+    display: none;
+    position: relative;
+}
+
+.container__texto {
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+
+    .container__titulo, .container__titulo--negrito {
+        font-family: var(--fonte-secundaria);
+        font-size: 30;
+    }
+
+    .container__titulo {
+        font-weight: 400;
+        display: block;
+    }
+
+    .container__titulo--negrito {
+        font-weight: 700;
+    }
+
+    .opcoes {
+        display: flex;
+    }
+
+    .opcoes__item {
+        padding: 1em 1em;
+        text-transform: uppercase;
+        color: var(--preto);
+    }
+
+    .opcoes__link {
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .container__imagem-transparente {
+        display: none;
+    }
+
+    .cabecalho__menu-hamburguer {
+        display: none;
+    }
+
+    .opcoes__botao:checked ~ .lista-menu {
+        display: block;
+        width: auto;
+    }
+
+    .opcoes__botao {
+        display: none;
+    }
+    
+    .opcoes__botao:checked ~ .label__opcoes > .opcoes__item {
+        color: var(--branco);
+        background: var(--azul-degrade);
+    }
+    
+    .label__opcoes:hover {
+        cursor: pointer;
+    }
+    
+    .lista-menu__item:hover {
+        background: var(--azul-degrade);
+    }
+
+    .lista-menu__item:hover > .lista-menu__link {
+        -webkit-text-fill-color: var(--branco);
+        text-decoration: none;
+    }
+
+    /* .lista-menu__item:hover {
+        background: var(--azul-degrade);
+        .lista-menu__link {
+            background: var(--branco);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    }  tambem funciona dessa forma no lugar do > */
+}
+
+@media screen and (min-width: 1728px) {
+    .container__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .container__texto {
+        display: block;
+    }
+
+    .cabecalho {
+        padding: 0 2em;
+    }
+
+    .opcoes {
+        margin-right: auto;
+    }
+}
+
+/* sinal ~ elemento no mesmo nível do anterior (mesmo pai)
+   sinal > elemento dentro do elemento anterior (elemento filho do elemento) */
